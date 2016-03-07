@@ -24,4 +24,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)enterTestView:(id)sender {
+    UIAlertController* alertController = [UIAlertController
+                                          alertControllerWithTitle:
+                                          @"I'm alert"
+                                          message:@"Alert text"
+                                          preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        NSLog(@"Tap no cancle");
+    }];
+    UIAlertAction* yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        NSLog(@"Tap yes ");
+    }];
+    [alertController addAction:noAction];
+    [alertController addAction:yesAction];
+    
+    [self presentViewController:alertController animated:true completion:nil];
+}
+
 @end
